@@ -56,6 +56,8 @@ df_merged.drop(columns='time_wetter', inplace=True)
 df_merged['hour'] = df_merged['time'].dt.hour
 df_merged['weekday'] = df_merged['departure_planned_time'].dt.weekday
 df_merged['departure_hour'] = df_merged['departure_planned_time'].dt.hour
+df_merged['time'] = df_merged['time'].dt.hour
+df_merged['departure_planned_time'] = df_merged['departure_planned_time'].dt.hour
 
 # Zugausfälle mit -1 kennzeichnen
 df_merged.loc[df_merged['is_canceled'] == True, 'delay_in_min'] = -1
